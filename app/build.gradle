@@ -3,6 +3,18 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
+
+    packagingOptions {
+        exclude 'proguard-project.txt'
+        exclude 'project.properties'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/DEPENDENCIES.txt'
+        exclude 'META-INF/DEPENDENCIES'
+    }
+
     defaultConfig {
         applicationId "com.deeppandya.ftpserver"
         minSdkVersion 15
@@ -25,5 +37,9 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compile 'com.android.support:appcompat-v7:25.1.1'
+
+// https://mvnrepository.com/artifact/org.apache.ftpserver/ftpserver-core
+    compile group: 'org.apache.ftpserver', name: 'ftpserver-core', version: '1.1.0'
+
     testCompile 'junit:junit:4.12'
 }
